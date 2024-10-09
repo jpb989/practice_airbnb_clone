@@ -27,6 +27,6 @@ export async function handleLogin(userId: string, accessToken: string, refreshTo
 
 export async function resetAutnCookies() {
     cookies().set("session_userid", "");
-    cookies().set("", "session_access_token");
-    cookies().set("", "session_refresh_token");
+    cookies().set("session_access_token", "");
+    cookies().set("session_refresh_token", "");
 }

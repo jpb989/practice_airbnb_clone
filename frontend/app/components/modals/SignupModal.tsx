@@ -22,8 +22,9 @@ const SignupModal = () => {
         }
 
         const response = await apiService.post("api/auth/register/", JSON.stringify(formData));
-        
+        console.log(response)
         if (response.access) {
+            
             signupModal.close();
             router.push("/")
         }
@@ -38,7 +39,7 @@ const SignupModal = () => {
     const content = (
         <>
             <form 
-                action={submitSignup}
+                onSubmit={submitSignup}
                 className='space-y-4'
             >
                 <input onChange={(e) => setEmail(e.target.value)} placeholder='Email' type="email" className='w-full h-[54px] px-4 border border-gray-300 rounded-xl'/>

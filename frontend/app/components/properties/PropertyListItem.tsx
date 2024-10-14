@@ -1,13 +1,11 @@
-import Image from "next/image"
-import { PropertyType } from "./PropertyList"
+import Image from "next/image";
+import { PropertyType } from "./PropertyList";
 
 interface PropertyProps {
-  property: PropertyType
+  property: PropertyType;
 }
 
-const PropertyListItem: React.FC<PropertyProps> = ({
-  property
-}) => {
+const PropertyListItem: React.FC<PropertyProps> = ({ property }) => {
   return (
     <div className="cursor-pointer">
       <div className="relative overflow-hidden aspect-square rounded-xl">
@@ -23,11 +21,12 @@ const PropertyListItem: React.FC<PropertyProps> = ({
         <p className="text-lg font-bold">{property.title}</p>
       </div>
       <div className="mt-2">
-        <p className="text-sm text-gray-500"><strong>${property.price_per_night}</strong> per night</p>
+        <p className="text-sm text-gray-500">
+          <strong>${property.price_per_night}</strong> per night
+        </p>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default PropertyListItem
-
+export default PropertyListItem;

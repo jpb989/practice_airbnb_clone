@@ -8,32 +8,27 @@ export type PropertyType = {
   title: string;
   price_per_night: number;
   image_url: string;
-}
+};
 
 const PropertyList = () => {
   const [properties, setProperties] = useState<PropertyType[]>([]);
-  
+
   const getProperties = async () => {
-    const tmpProperties = await apiService.get("/api/properties/")
-    setProperties(tmpProperties.data)
-  }
+    const tmpProperties = await apiService.get("api/properties/");
+    setProperties(tmpProperties.data);
+  };
 
   useEffect(() => {
     getProperties();
-  }, [])
+  }, []);
 
   return (
     <>
-        {properties.map((property) => {
-          return (
-            <PropertyListItem
-            key={property.id}
-            property={property}
-            />
-          )
-        })} 
+      {properties.map((property) => {
+        return <PropertyListItem key={property.id} property={property} />;
+      })}
     </>
-  )
-}
+  );
+};
 
-export default PropertyList
+export default PropertyList;

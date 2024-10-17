@@ -4,6 +4,7 @@ import Modal from "./Modal";
 import useAddPropertyModal from "@/app/hooks/usePropertyModal";
 import CustomButton from "../forms/CustomButton";
 import Categories from "../addproperty/Categories";
+import SelectCountry, { SelectCountryValue } from "../forms/SelectCountry";
 
 const AddPropertyModal = () => {
   // States
@@ -15,6 +16,7 @@ const AddPropertyModal = () => {
   const [dataBedrooms, setDataBedrooms] = useState("");
   const [dataBathrooms, setDataBathrooms] = useState("");
   const [dataGuests, setDataGuests] = useState("");
+  const [dataCountry, setDataCountry] = useState<SelectCountryValue>();
 
   // Set Data
   const setCategory = (category: string) => {
@@ -131,7 +133,10 @@ const AddPropertyModal = () => {
         <>
           <h2 className="mb-6 text-2xl">Location</h2>
           <div className="pt-3 pb-6 space-y-4">
-            Select dhdfhs
+            <SelectCountry
+              value={dataCountry}
+              onChange={value => setDataCountry(value as SelectCountryValue)}
+            />
           </div>
 
           <CustomButton
@@ -145,7 +150,20 @@ const AddPropertyModal = () => {
           />
         </>
       ) : (
-        <p>asdf</p>
+        <>
+          <h2 className="mb-6 text-2xl">Image</h2>
+          <div className="pt-3 pb-6 space-y-4">
+          </div>
+          <CustomButton
+            label="Prev"
+            className="mb-2 bg-black hover:bg-gray-800"
+            onClick={() => setCurrentStep(3)}
+          />
+          <CustomButton
+            label="Next"
+            onClick={() => setCurrentStep(5)}
+          />
+        </>
       )}
     </>
   )

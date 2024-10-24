@@ -20,9 +20,10 @@ const SignupModal = () => {
       email: email,
       password1: password1,
       password2: password2,
+      name: "Joshua",
     };
 
-    const response = await apiService.post(
+    const response = await apiService.postWithoutToken(
       "api/auth/register/",
       JSON.stringify(formData),
     );
